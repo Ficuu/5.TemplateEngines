@@ -1,0 +1,52 @@
+<div class="container fluid">
+    <div class="row">
+        <div class="col-sm-12 col-xl-6 col-xxl-6 col-lg-6">
+            <img src="https://i0.wp.com/blog.fossasia.org/wp-content/uploads/2017/07/handlebars-js.png?fit=500%2C500&ssl=1" alt="" width="15%">
+            <form action="/products" method="post">
+                <div class="mb-3">
+                    <label for="productName" class="form-label">Nombre</label>
+                    <input type="text" name="product" class="form-control w-75" id="productName" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="productPrice" class="form-label">Precio</label>
+                    <input type="text" name="price" class="form-control w-75" id="productPrice">
+                </div>
+                <div class="mb-3">
+                    <label for="productURL" class="form-label">URL imágen</label>
+                    <input type="text" name="img" class="form-control w-75" id="productURL">
+                </div>
+                <button type="submit" class="btn btn-success mb-4">SEND!</button>
+            </form>
+        </div>
+        <div class="col-sm-12 col-xl-6 col-xxl-6 col-lg-6">
+            {{#if listExist}}
+            <h2>List of products</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        
+                        <th scope="col">Producto</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">imágen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        {{#each data}}
+                    <tr>
+                        
+                        <td>{{this.product}}</td>
+                        <td>{{this.price}}</td>
+                        <td><img src={{this.img}} alt={{this.product}} width="25px"></td>
+                    </tr>
+                        {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+                <h4 class="mt-4 text-center">No hay productos cargados</h2>
+            {{/if}}
+            
+            
+        </div>
+    </div>
+    
+</div>
